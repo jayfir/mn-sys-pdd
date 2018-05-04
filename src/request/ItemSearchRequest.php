@@ -68,6 +68,8 @@ class ItemSearchRequest
         return $this->apiParas;
     }
 
+    
+    
     public function check()
     {
         RequestCheckUtil::checkNotNull($this->sortType, 'sort_type');
