@@ -1,0 +1,27 @@
+{
+    "name": "jayfir/mn-sys-pdd",
+    "description": "JayFir多多进宝集成包",
+    "keywords": [
+        "yii2",
+        "jayfir",
+        "pdd"
+    ],
+    "authors": [
+        {
+            "name": "jayfir",
+            "email": "chinhui@coderfarmer.com"
+        }
+    ],
+    "type": "yii-extension",
+    "license": "MIT",
+    "homepage": "https://github.com/jayfir/mn-sys-pdd",
+    "require": {
+        "php": ">=5.6",
+        "yiisoft/yii2": ">=2.0.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "jayfir\\pdd\\": "src/"
+        }
+    }
+}
