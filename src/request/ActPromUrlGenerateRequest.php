@@ -77,6 +77,22 @@ class ActPromUrlGenerateRequest
         $this->apiParas['generate_mobile_short_url'] = $generateMobileShortUrl;
     }
 
+    public function getGenerateMobileShortUrl()
+    {
+        return $this->generateMobileShortUrl;
+    }
+
+    public function setPidList($pidList)
+    {
+        $this->pidList = $pidList;
+        $this->apiParas['p_id_list'] = $pidList;
+    }
+
+    public function getPidList()
+    {
+        return $this->pidList;
+    }
+
     public function check()
     {
         RequestCheckUtil::checkNotNull($this->urlType, 'url_type');
