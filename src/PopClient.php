@@ -38,7 +38,7 @@ class PopClient extends Component
         ksort($params);
         $stringToBeSigned = $this->secretKey;
         foreach ($params as $k => $v) {
-            if (is_string($v) && "@" != substr($v, 0, 1)) {
+            if ((is_string($v) || is_numeric($v) || is_bool($v)) && "@" != substr($v, 0, 1)) {
                 $stringToBeSigned .= "$k$v";
             }
         }
@@ -257,12 +257,14 @@ class PopClient extends Component
             $sysParams["partner_id"] = $this->getClusterTag();
         } else {
             $requestUrl = $this->gatewayUrl . "?";
-            $sysParams["partner_id"] = $this->sdkVersion;
+//            $sysParams["partner_id"] = $this->sdkVersion;
         }
         //签名
-        $sysParams["sign"] = $this->generateSign(array_merge($apiParams, $sysParams));
+        $allParams = array_merge($apiParams, $sysParams);
+        // print_r($allParams);exit;
+        $allParams["sign"] = $this->generateSign($allParams);
 
-        foreach ($sysParams as $sysParamKey => $sysParamValue) {
+        foreach ($allParams as $sysParamKey => $sysParamValue) {
             // if(strcmp($sysParamKey,"timestamp") != 0)
             $requestUrl .= "$sysParamKey=" . urlencode($sysParamValue) . "&";
         }
@@ -278,7 +280,6 @@ class PopClient extends Component
 
         // $requestUrl .= "timestamp=" . urlencode($sysParams["timestamp"]) . "&";
         $requestUrl = substr($requestUrl, 0, -1);
-
         //发起HTTP请求
         try {
             if (count($fileFields) > 0) {
