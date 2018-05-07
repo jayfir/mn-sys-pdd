@@ -8,8 +8,8 @@ common\config\main.php
 
          'pdd' => [
                     'class' => 'jayfir\pdd\PopClient',
-                    'appkey' => '34f1a221a7254de89a84582f3af90d98',
-                    'secretKey' => '3682ba34735ff57de572f7cde7098545671b6930',
+                    'appkey' => '***',
+                    'secretKey' => '**',
                     'format' => 'JSON'
                 ],
         ]
