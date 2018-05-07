@@ -1,7 +1,7 @@
 # mn-sys-pdd
 jayfir 拼多多集成包
 
-#配置Yii组件
+# 配置Yii组件
 ```
 common\config\main.php
         components=>[
@@ -16,7 +16,7 @@ common\config\main.php
 
 ```
 
-#调用方式
+# 调用方式
 ```
 example:
 
