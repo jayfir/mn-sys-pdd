@@ -55,7 +55,7 @@ class OrderListGetRequest
     public function setPid($pid)
     {
         $this->pid = $pid;
-        $this->apiParas['pid'] = $pid;
+        $this->apiParas['p_id'] = $pid;
     }
 
     public function getPid()

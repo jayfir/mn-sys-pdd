@@ -6,7 +6,7 @@ use jayfir\pdd\RequestCheckUtil;
 
 /**
  * @filename ActPromUrlGenerateRequest.php
- * 
+ *  生成活动推广链接（分享红包赚佣金）
  * @encoding UTF-8
  * @author jinhuiZhang <chinhui@coderfarmer.com>
  * @datetime 2018-5-7 11:35:15
