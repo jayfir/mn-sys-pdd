@@ -15,10 +15,16 @@ class ItemSearchRequest
 {
 
     /**
+     * 商品关键词，与opt_id字段选填一个或全部填写
+     * @var type 
+     */
+    private $keyword;
+
+    /**
      * 商品标签类目ID，一级类目ID，使用pdd.goods.opt.get获取
      * @var type 
      */
-    private $categoryId;
+    private $optId;
 
     /**
      * 默认值1，商品分页数
@@ -45,8 +51,9 @@ class ItemSearchRequest
     private $withCoupon;
 
     /**
-     * range_to,range_from,range_id
-     * 查询维度ID，枚举值如下：0-商品拼团价格区间，1-商品券后价价格区间，2-佣金比例区间，3-优惠券金额区间，4-加入多多进宝时间区间，5-销量区间，6-佣金金额区间
+     * 范围列表，可选值：[{"range_id":0,"range_from":1,"range_to":1500},{"range_id":1,"range_from":1,"range_to":1500}]
+     * range_to,range_from,range_id 必填
+     * range_id->查询维度ID，枚举值如下：0-商品拼团价格区间，1-商品券后价价格区间，2-佣金比例区间，3-优惠券金额区间，4-加入多多进宝时间区间，5-销量区间，6-佣金金额区间
      * @var type 
      */
     private $rangeList;
@@ -56,6 +63,12 @@ class ItemSearchRequest
      * @var type 
      */
     private $catId;
+
+    /**
+     * 商品ID列表。例如：[123456,123]，当入参带有goods_id_list字段，将不会以opt_id、 cat_id、keyword维度筛选商品
+     * @var type 
+     */
+    private $goodsIdList;
     private $apiParas = array();
 
     public function getApiMethodName()
@@ -68,12 +81,109 @@ class ItemSearchRequest
         return $this->apiParas;
     }
 
-    
-    
+    public function setKeyword($keyword)
+    {
+        $this->keyword = $keyword;
+        $this->apiParas['keyword'] = $keyword;
+    }
+
+    public function getKeyword()
+    {
+        return $this->keyword;
+    }
+
+    public function setOptId($optId)
+    {
+        $this->optId = $optId;
+        $this->apiParas['opt_id'] = $optId;
+    }
+
+    public function getOptId()
+    {
+        return $this->optId;
+    }
+
+    public function setPage($page)
+    {
+        $this->page = $page;
+        $this->apiParas['page'] = $page;
+    }
+
+    public function getPage()
+    {
+        return $this->page;
+    }
+
+    public function setPageSize($pageSize)
+    {
+        $this->pageSize = $pageSize;
+        $this->apiParas['page_size'] = $pageSize;
+    }
+
+    public function getPageSize()
+    {
+        return $this->pageSize;
+    }
+
+    public function setSortType($sortType)
+    {
+        $this->sortType = $sortType;
+        $this->apiParas['sort_type'] = $sortType;
+    }
+
+    public function getSortType()
+    {
+        return $this->sortType;
+    }
+
+    public function setWithCoupon($withCoupon)
+    {
+        $this->withCoupon = $withCoupon;
+        $this->apiParas['with_coupon'] = $withCoupon;
+    }
+
+    public function getWithCoupon()
+    {
+        return $this->withCoupon;
+    }
+
+    public function setRangeList($rangeList)
+    {
+        $this->rangeList = $rangeList;
+        $this->apiParas['range_list'] = $rangeList;
+    }
+
+    public function getRangeList()
+    {
+        return $this->rangeList;
+    }
+
+    public function setCatId($catId)
+    {
+        $this->catId = $catId;
+        $this->apiParas['cat_id'] = $catId;
+    }
+
+    public function getCatId()
+    {
+        return $this->catId;
+    }
+
+    public function setGoodsIdList($goodsIdList)
+    {
+        $this->goodsIdList = $goodsIdList;
+        $this->apiParas['goods_id_list'] = $goodsIdList;
+    }
+
+    public function getGoodsIdList()
+    {
+        return $this->goodsIdList;
+    }
+
     public function check()
     {
         RequestCheckUtil::checkNotNull($this->sortType, 'sort_type');
-        RequestCheckUtil::checkNotNull($this->sortType, 'sort_type');
+        RequestCheckUtil::checkNotNull($this->withCoupon, 'with_coupon');
     }
 
     public function putOtherTextParam($key, $value)
