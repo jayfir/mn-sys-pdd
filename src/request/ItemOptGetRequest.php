@@ -11,7 +11,7 @@ use jayfir\pdd\RequestCheckUtil;
  * @author jinhuiZhang <chinhui@coderfarmer.com>
  * @datetime 2018-5-7 17:29:30
  */
-class IteOptGetRequest
+class ItemOptGetRequest
 {
 
     /**
