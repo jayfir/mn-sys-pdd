@@ -288,7 +288,7 @@ class PopClient extends Component
                 $resp = $this->curl($requestUrl, $apiParams);
             }
         } catch (\Exception $e) {
-            $this->logCommunicationError($sysParams["method"], $requestUrl, "HTTP_ERROR_" . $e->getCode(), $e->getMessage());
+            $this->logCommunicationError($sysParams["type"], $requestUrl, "HTTP_ERROR_" . $e->getCode(), $e->getMessage());
             $result->code = $e->getCode();
             $result->msg = $e->getMessage();
             return self::objectToArray($result);
@@ -315,7 +315,7 @@ class PopClient extends Component
 
         //返回的HTTP文本不是标准JSON或者XML，记下错误日志
         if (false === $respWellFormed) {
-            $this->logCommunicationError($sysParams["method"], $requestUrl, "HTTP_RESPONSE_NOT_WELL_FORMED", $resp);
+            $this->logCommunicationError($sysParams["type"], $requestUrl, "HTTP_RESPONSE_NOT_WELL_FORMED", $resp);
             $result->code = 0;
             $result->msg = "HTTP_RESPONSE_NOT_WELL_FORMED";
             return self::objectToArray($result);

@@ -1,6 +1,7 @@
 <?php
 
 namespace jayfir\pdd\request;
+
 use jayfir\pdd\RequestCheckUtil;
 
 /**
@@ -34,7 +35,7 @@ class OrderListGetRequest
     public function setStartTime($startTime)
     {
         $this->startTime = $startTime;
-        $this->apiParas[' start_time'] = $startTime;
+        $this->apiParas['start_time'] = $startTime;
     }
 
     public function getStartTime()
