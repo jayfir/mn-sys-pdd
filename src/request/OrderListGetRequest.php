@@ -1,6 +1,7 @@
 <?php
 
 namespace jayfir\pdd\request;
+use jayfir\pdd\RequestCheckUtil;
 
 /**
  * @filename OrderListGetRequest.php
