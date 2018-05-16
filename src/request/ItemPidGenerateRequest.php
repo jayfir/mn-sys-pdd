@@ -19,6 +19,11 @@ class ItemPidGenerateRequest
      * @var type 
      */
     private $number;
+    /**
+    *
+    *
+    */
+    private $pidNameList;
     private $apiParas = array();
 
     public function getApiMethodName()
@@ -40,6 +45,17 @@ class ItemPidGenerateRequest
     public function getNumber()
     {
         return $this->number;
+    }
+
+    public function setPidNameList($pidNameList)
+    {
+        $this->pidNameList = $pidNameList;
+        $this->apiParas['p_id_name_list'] = $pidNameList;
+    }
+
+    public function getPidNameList()
+    {
+        return $this->pidNameList;
     }
 
     public function check()
