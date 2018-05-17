@@ -19,10 +19,11 @@ class ItemPidGenerateRequest
      * @var type 
      */
     private $number;
+
     /**
-    *
-    *
-    */
+     *
+     *
+     */
     private $pidNameList;
     private $apiParas = array();
 
