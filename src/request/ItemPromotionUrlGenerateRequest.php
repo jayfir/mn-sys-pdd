@@ -46,6 +46,12 @@ class ItemPromotionUrlGenerateRequest
      * @var type 
      */
     private $customParameters;
+
+    /**
+     * 是否生成小程序推广链接
+     * @var type 
+     */
+    private $generateWeApp;
     private $apiParas = array();
 
     public function getApiMethodName()
@@ -89,6 +95,17 @@ class ItemPromotionUrlGenerateRequest
     public function getGenerateShortUrl()
     {
         return $this->generateShortUrl;
+    }
+
+    public function setGenerateWeApp($generateWeApp)
+    {
+        $this->generateWeApp = $generateWeApp;
+        $this->apiParas['generate_we_app'] = $generateWeApp;
+    }
+
+    public function getGenerateWeApp()
+    {
+        return $this->generateWeApp;
     }
 
     public function setMultiGroup($multiGroup)
