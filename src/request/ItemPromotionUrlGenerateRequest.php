@@ -52,6 +52,7 @@ class ItemPromotionUrlGenerateRequest
      * @var type 
      */
     private $generateWeApp;
+    private $generateWeappWebview;
     private $apiParas = array();
 
     public function getApiMethodName()
@@ -106,6 +107,17 @@ class ItemPromotionUrlGenerateRequest
     public function getGenerateWeApp()
     {
         return $this->generateWeApp;
+    }
+
+    public function setGenerateWeAppWebview($generateWeappWebview)
+    {
+        $this->generateWeappWebview = $generateWeappWebview;
+        $this->apiParas['generate_weapp_webview'] = $generateWeappWebview;
+    }
+
+    public function getGenerateWeAppWebview()
+    {
+        return $this->generateWeappWebview;
     }
 
     public function setMultiGroup($multiGroup)
